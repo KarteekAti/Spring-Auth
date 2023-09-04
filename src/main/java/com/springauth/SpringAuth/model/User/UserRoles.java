@@ -1,4 +1,4 @@
-package com.authdemo.Auth.model.User;
+package com.springauth.SpringAuth.model.User;
 
 public enum UserRoles {
     USER,

@@ -1,6 +1,6 @@
-package com.authdemo.Auth.repository;
+package com.springauth.SpringAuth.repository;
 
-import com.authdemo.Auth.model.User.User;
+import com.springauth.SpringAuth.model.User.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

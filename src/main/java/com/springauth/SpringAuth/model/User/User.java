@@ -1,6 +1,6 @@
-package com.authdemo.Auth.model.User;
+package com.springauth.SpringAuth.model.User;
 
-import com.authdemo.Auth.model.UID;
+import com.springauth.SpringAuth.model.UID;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

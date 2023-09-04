@@ -1,4 +1,4 @@
-package com.authdemo.Auth.model;
+package com.springauth.SpringAuth.model;
 
 import java.security.SecureRandom;
 
