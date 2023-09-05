@@ -1,5 +1,6 @@
 package com.springauth.SpringAuth.model.User;
 
+import com.springauth.SpringAuth.model.Role.Role;
 import com.springauth.SpringAuth.model.UID;
 
 import jakarta.validation.constraints.Email;
@@ -7,16 +8,21 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashSet;
+import java.util.Set;
 
-@Document(collation = "User")
+
+@Document(collection = "User")
 public class User {
 
-    @Indexed
     @Id
     private String Id;
+
+    @NotBlank
+    private String username;
 
     @NotBlank
     @Email
@@ -25,10 +31,15 @@ public class User {
 
     @NotBlank
     private String password;
-    private UserRoles role;
 
-    public User() {
-        this.Id = UID.generate();
+    @DBRef
+    private Set<Role> roles = new HashSet<>();
+
+    public User(String username, String email, String password) {
+//        this.Id = UID.generate();
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
     public void setEmail(String email) {
@@ -43,6 +54,15 @@ public class User {
         return Id;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
     public String getEmail() {
         return email;
     }
@@ -51,12 +71,12 @@ public class User {
         return password;
     }
 
-    public UserRoles getRole() {
-        return role;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setRole(UserRoles role) {
-        this.role = role;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
 
